@@ -2,9 +2,10 @@
 #include "main.h"
 
 /**
- * main - Entry point for C code.
+ * main - Check description
+ * Description: It prints _putchar, followed by a new line.
  *
- * Return: Zero(0), Success Exit Status.
+ * Return: Always 0.
  */
 int main(void)
 {
