@@ -1,5 +1,4 @@
-#include <unistd.h>
-#include "MAIN.H"
+#include "main.h"
 
 /**
  * main - Check description
