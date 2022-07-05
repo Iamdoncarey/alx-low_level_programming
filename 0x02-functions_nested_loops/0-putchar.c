@@ -1,13 +1,12 @@
 #include "main.h"
+
 /**
- * main -  function to print
+ * main - Entry point for C code.
  *
- * Return: 0
+ * Return: Zero(0), Success Exit Status.
  */
 int main(void)
-
 {
-
 	_putchar('_');
 	_putchar('p');
 	_putchar('u');
@@ -17,6 +16,5 @@ int main(void)
 	_putchar('a');
 	_putchar('r');
 	_putchar('\n');
-
 	return (0);
 }
