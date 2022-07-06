@@ -7,6 +7,7 @@
 void print_alphabet(void)
 {
 	int c = 97;
+
 	do {
 		_putchar(c);
 		c++;
