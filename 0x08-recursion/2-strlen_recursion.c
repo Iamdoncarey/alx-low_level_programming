@@ -1,9 +1,8 @@
 #include "main.h"
 
 /**
-  * factorial - call the factorial of a number recursively.
-  * @n: The integer.
-  *
+  * factorial -> function to get length of string
+  * @s: string param
   * Return: length of string
   */
 int _strlen_recursion(char *s);
