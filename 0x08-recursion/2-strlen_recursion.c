@@ -6,7 +6,7 @@
   *
   * Return: The factorial.
   */
-int factorial(int n)
+int _strlen_recursion(char *s);
 {
 	if (n < 0)
 		return (-1);
