@@ -1,44 +1,49 @@
-#include "main.h"
+#include "variadic_functions.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
-  * set_bit - sets the value of a bit to 1 at a given index.
-  * @n: pointer to the integer.
-  * @index: position the bit is to be inserted.
-  *
-  * Return: One negative one otherwise.
+  * print_all - prints anything.
+  * @format: list of args type.
   */
-int set_bit(unsigned long int *n, unsigned int index)
+void print_all(const char * const format, ...)
 {
+	int i = 0;
+	char *str;
+	va_list args;
 
-	unsigned long int num_one, orig_num, counter, i;
+	va_start(args, format);
 
-	i = counter = num_one = 0;
-
-	orig_num  = *n;
-
-	if (index > 64)
-		return (-1);
-
-	while (counter < 64)
+	while (format && format[i] != '\0')
 	{
-		i  = i << 1;
-		if (counter == index)
-			i += 1;
-		else
-			i += orig_num & 1;
-		counter++;
-		orig_num = orig_num >> 1;
+		switch (format[i])
+		{
+			case 'f':
+				printf("%f", va_arg(args, double));
+				break;
+			case 'i':
+				printf("%d", va_arg(args, int));
+				break;
+			case 'c':
+				printf("%c", va_arg(args, int));
+				break;
+			case 's':
+				str = va_arg(args, char *);
+				if (str)
+				{
+					printf("%s", str);
+					break;
+				}
+				printf("(nil)");
+				break;
+			default:
+				i++;
+				continue;
+		}
+		if (format[i + 1] != '\0')
+			printf(", ");
+		i++;
 	}
-
-	while (counter > 0)
-	{
-		num_one = num_one << 1;
-
-		num_one += i & 1;
-		i = i >> 1;
-		counter--;
-	}
-
-	*n = num_one;
-	return (1);
+	printf("\n");
+	va_end(args);
 }

@@ -1,21 +1,35 @@
-#include "main.h"
+#include "variadic_functions.h"
+#include <stdarg.h>
+#include <stdio.h>
 
 /**
-  * get_bit - eturns the value of a bit at a given index.
-  * @n: integer number.
-  * @index: the position of the bit.
-  *
-  * Return: value of the bit at index.
+  * print_strings - prints string elements.
+  * @separator: separator.
+  * @n: number of strings.
   */
-int get_bit(unsigned long int n, unsigned int index)
+void print_strings(const char *separator, const unsigned int n, ...)
 {
-	unsigned long int counter = 0;
+	unsigned int i;
+	char *ptr;
 
-	if (index > 63)
-		return (-1);
+	va_list args;
 
-	for (; counter < index; counter++)
-		n >>= 1;
+	va_start(args, n);
 
-	return (n & 1);
+	for (i = 0; i < n; i++)
+	{
+		ptr = va_arg(args, char *);
+
+		if (i != 0 && separator != NULL)
+			printf("%s", separator);
+
+		if (ptr)
+			printf("%s", ptr);
+		else
+			printf("(nil)");
+	}
+	printf("\n");
+
+	va_end(args);
+
 }
